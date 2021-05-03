@@ -15,6 +15,8 @@ namespace Estudos.App.WebApi.Configuration
 
             services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
 
+            services.AddMemoryCache();
+
             #region Cosrs
 
             services.AddCors(opt =>

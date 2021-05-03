@@ -30,10 +30,12 @@ namespace Estudos.App.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddWebApiConfig();
+            services.AddSwaggerConfiguration();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwaggerConfiguration();
             app.UseMvcConfiguration(env);
         }
     }

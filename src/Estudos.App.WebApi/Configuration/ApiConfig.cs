@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Estudos.App.WebApi.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -7,9 +9,11 @@ namespace Estudos.App.WebApi.Configuration
 {
     public static class ApiConfig
     {
-        public static void AddWebApiConfig(this IServiceCollection services)
+        public static void AddWebApiConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers();
+
+            services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
 
             #region Cosrs
 

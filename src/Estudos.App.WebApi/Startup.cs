@@ -29,7 +29,7 @@ namespace Estudos.App.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddWebApiConfig();
+            services.AddWebApiConfig(Configuration);
             services.AddSwaggerConfiguration();
         }
 

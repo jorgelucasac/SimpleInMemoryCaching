@@ -1,3 +1,4 @@
+using Estudos.App.WebApi.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,7 +18,7 @@ namespace Estudos.App.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddWebApiConfig();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

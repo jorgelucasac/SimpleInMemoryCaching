@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Estudos.App.WebApi.Extensions;
+using Estudos.App.WebApi.Services.Interfaces;
 using Estudos.App.WebApi.ViewModels;
 using Microsoft.Extensions.Options;
 

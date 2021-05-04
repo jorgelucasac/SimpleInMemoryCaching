@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Estudos.App.WebApi.Extensions;
 using Estudos.App.WebApi.Services;
+using Estudos.App.WebApi.Services.Interfaces;
 using Estudos.App.WebApi.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +36,15 @@ namespace Estudos.App.WebApi.Controllers
 
             paises = await _paisService.ObterTodos();
             SetCache(ObterTodosKey, paises);
-            
+
+            return Ok(paises);
+        }
+
+        [HttpGet("obter-todos")]
+        [TypeFilter(typeof(CacheAttribute), Arguments = new object[] { 20 })]
+        public async Task<ActionResult<IEnumerable<PaisViewModel>>> ObterTodosCache()
+        {
+            var paises = await _paisService.ObterTodos();
             return Ok(paises);
         }
 
